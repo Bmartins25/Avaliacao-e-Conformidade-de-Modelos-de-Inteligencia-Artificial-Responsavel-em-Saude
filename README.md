@@ -1,64 +1,255 @@
-# Projeto_Pesquisa_PPGIT_UFMG
+Avaliação e Conformidade de Modelos de Inteligência Artificial Responsável em Saúde
 
-Aluno: Bruno Martins Bartolomeu
+Dissertação de Mestrado — PPGIT/UFMG
 
-Tema: Avaliação e Conformidade de Modelos de Inteligência Artificial responsável em Saúde
+Autor: Bruno Martins Bartolomeu
+Programa: Programa de Pós-Graduação em Inovação Tecnológica — PPGIT
+Instituição: Universidade Federal de Minas Gerais — UFMG
+Orientador: Prof. Wagner Meira Jr. — DCC/UFMG
+Coorientação científica: Profa. Patrícia M. Parreiras — Instituto René Rachou / Fiocruz Minas
+Área: Inteligência Artificial Responsável, Saúde Digital, Governança de IA e Ciência de Dados
 
-https://physionet.org/content/mimiciv/3.1/
+Sobre o projeto
 
-Base de dados: MIMIC-IV 
+Este repositório reúne códigos, análises, documentação e artefatos computacionais desenvolvidos no contexto da dissertação de mestrado “Avaliação e Conformidade de Modelos de Inteligência Artificial Responsável em Saúde”.
 
-Linguagem: Python
+A pesquisa investiga mecanismos para avaliação sistemática de modelos e sistemas de Inteligência Artificial aplicados à saúde, considerando de forma integrada aspectos técnicos, éticos e regulatórios. O trabalho busca contribuir para o desenvolvimento, avaliação, governança e uso responsável de IA em ambientes de saúde.
 
----
+Problema de pesquisa
 
-Resumo
+A crescente utilização de Inteligência Artificial na saúde amplia a necessidade de mecanismos capazes de avaliar não apenas o desempenho técnico dos modelos, mas também governança, proteção de dados, segurança e risco clínico, transparência, explicabilidade, robustez, monitoramento e responsabilidade.
 
-Dados médicos coletados retrospectivamente têm a oportunidade de aprimorar o atendimento ao paciente por meio da descoberta de conhecimento e do desenvolvimento de algoritmos. A ampla reutilização de dados médicos é desejável para o bem público, mas o compartilhamento de dados deve ser feito de forma a proteger a privacidade do paciente. Aqui, apresentamos o Medical Information Mart for Intensive Care (MIMIC)-IV, um grande conjunto de dados desidentificados de pacientes internados no departamento de emergência ou em uma unidade de terapia intensiva no Beth Israel Deaconess Medical Center em Boston, Massachusetts. 
+Objetivo
 
-O MIMIC-IV contém dados de mais de 65.000 pacientes internados em uma UTI e mais de 200.000 pacientes internados no departamento de emergência. O MIMIC-IV incorpora dados contemporâneos e adota uma abordagem modular para a organização de dados, destacando a procedência dos dados e facilitando o uso individual e combinado de fontes de dados distintas. O MIMIC-IV pretende dar continuidade ao sucesso do MIMIC-III e oferecer suporte a um amplo conjunto de aplicações na área da saúde.
+Desenvolver e avaliar uma estrutura sistemática para análise de Inteligência Artificial Responsável em Saúde, integrando requisitos técnicos, éticos, regulatórios, de governança, proteção de dados, segurança e risco clínico, transparência, explicabilidade, robustez e monitoramento.
 
----
+Metodologia
 
-Fundo
+A pesquisa foi estruturada com base em Design Science Research (DSR). O percurso contempla identificação do problema, revisão da literatura e referenciais, definição dos requisitos, desenvolvimento do artefato, aplicação em contexto clínico, análise dos resultados e discussão das limitações e implicações para IA responsável em saúde.
 
-Nos últimos anos, houve um movimento coordenado em direção à adoção de sistemas de registros médicos digitais em hospitais. Nos EUA, quase 96% dos hospitais tinham um sistema de registro eletrônico de saúde digital (EHR) em 2015 [1]. Dados médicos coletados retrospectivamente têm sido cada vez mais usados para epidemiologia e modelagem preditiva. Esta última se deve, em parte, à eficácia das abordagens de modelagem em grandes conjuntos de dados [2]. Apesar desses avanços, o acesso a dados médicos para melhorar o atendimento ao paciente continua sendo um desafio significativo. 
+FAC-IA Saúde
 
-Embora os motivos para o compartilhamento limitado de dados médicos sejam multifacetados, as preocupações com a privacidade do paciente são destacadas como uma das questões mais significativas. Embora estudos com pacientes tenham demonstrado um consenso quase uniforme de que dados médicos desidentificados devem ser usados para melhorar a prática médica, especialistas na área continuam a debater os mecanismos ideais para fazê-lo. Excepcionalmente, o banco de dados MIMIC-III adotou um esquema de acesso permissivo que permitiu ampla reutilização dos dados [3]. 
+O principal artefato da pesquisa é o FAC-IA Saúde — Framework de Avaliação e Conformidade de Inteligência Artificial em Saúde.
 
-Esse mecanismo tem se mostrado bem-sucedido no amplo uso do MIMIC-III em uma variedade de estudos, desde a avaliação da eficácia do tratamento em coortes bem definidas até a previsão de desfechos-chave para os pacientes, como a mortalidade. O MIMIC-IV visa dar continuidade ao sucesso do MIMIC-III, com uma série de alterações para melhorar a usabilidade dos dados e permitir mais aplicações em pesquisas.
+O framework é organizado em 5 etapas, 5 domínios e uma tríade de avaliação composta por 3 pilares, com 15 critérios por pilar, totalizando 45 critérios. A avaliação também considera quatro dimensões de risco.
 
----
+Pilar
 
-Notas de lançamento
+Perspectiva
 
-MIMIC-IV v3.1
+Técnico
 
-O MIMIC-IV v3.1 foi lançado em outubro de 2024. Esta versão corrigiu pequenos bugs relatados pela comunidade:
+desempenho, robustez, segurança, confiabilidade e monitoramento
 
-Os itemidvalores nas tabelas d_labitems e labevents foram alterados para um subconjunto de medições laboratoriais entre as versões 2.2 e 3.0. Essa alteração não foi intencional. As tabelas foram atualizadas e os valores d_labitems e labevents itemid foram verificados para serem consistentes com a versão 2.2.
-Dois subject_idestavam presentes em várias tabelas de dados, mas não na tabela de pacientes . Esses indivíduos foram removidos das tabelas de dados. As restrições do banco de dados com uma chave estrangeira para a subject_id coluna na tabela de pacientes agora devem funcionar corretamente.
-Se estiver atualizando da v3.0, observe que somente as seguintes tabelas foram modificadas (e, portanto, requerem atualização):
+Ético
 
-* d_labitems
-* diagnósticos_icd
-* códigos drg
-* eventos de laboratório
-* eventos de microbiologia
-* OMR
-* transferências
-* icustays
+equidade, transparência, explicabilidade, responsabilidade e supervisão humana
 
----
+Regulatório
+
+governança, conformidade, proteção de dados, documentação e responsabilização
+
+Domínios de avaliação
+
+Governança — responsabilidade, gestão, documentação, supervisão e ciclo de vida da IA.
+
+Dados e LGPD — qualidade, procedência, governança, privacidade e proteção dos dados.
+
+Segurança e risco clínico — riscos associados ao uso da IA e potenciais impactos assistenciais.
+
+Transparência e explicabilidade — documentação, compreensão e comunicação do funcionamento e limitações dos modelos.
+
+Robustez e monitoramento — estabilidade, generalização, desempenho e acompanhamento contínuo.
+
+Base empírica — MIMIC-IV v3.1
+
+A etapa empírica utiliza a MIMIC-IV v3.1 — Medical Information Mart for Intensive Care, disponibilizada pelo MIT Laboratory for Computational Physiology por meio do PhysioNet.
+
+Base oficial: https://physionet.org/content/mimiciv/3.1/
+
+População considerada no projeto:
+
+364.627 pacientes;
+
+546.028 internações.
+
+As análises utilizam estruturas do módulo hospitalar (hosp) e tabelas derivadas (derive) da MIMIC-IV.
+
+Os dados originais da MIMIC-IV não são redistribuídos neste repositório. O acesso deve ser realizado diretamente pelo PhysioNet, observando os requisitos de credenciamento, treinamento e uso da base.
+
+Preparação para acesso aos dados
+
+CITI Program — conclusão em 03/07/2025
+
+HIPAA: 97%;
+
+Conflict of Interest (COI): 80%.
+
+Variáveis analisadas
+
+idade;
+
+sexo;
+
+escore SOFA;
+
+sepse, considerando Sepsis-3;
+
+mortalidade hospitalar;
+
+tempo de permanência hospitalar (LOS);
+
+comorbidades;
+
+características clínicas relevantes para estratificação de risco.
+
+Análises desenvolvidas
+
+Foram realizadas caracterização da população, análises de idade e mortalidade, sexo e gravidade clínica, escore SOFA, sepse, comorbidades e escores prognósticos, além da investigação da heterogeneidade de risco entre subgrupos.
+
+Principais achados
+
+As análises indicaram crescimento da mortalidade com o avanço da idade e com maiores níveis de SOFA, diferenças por sexo em cenários de maior gravidade e heterogeneidade de risco entre subgrupos. Esses resultados reforçam a importância de avaliar modelos de IA considerando características clínicas e populacionais, e não apenas métricas agregadas de desempenho.
+
+Inteligência Artificial Responsável em Saúde
+
+A pesquisa contempla governança de IA, equidade, transparência, explicabilidade, supervisão humana, segurança, monitoramento contínuo e proteção de dados como dimensões fundamentais para avaliação responsável de sistemas de IA em saúde.
+
+Referenciais técnicos, éticos e regulatórios
+
+O trabalho considera, entre outros, LGPD, EU AI Act, orientações da OMS, UNESCO e OCDE, NIST AI RMF, ISO/IEC 42001, IEC 62304 e referenciais da FDA relacionados a Software as a Medical Device (SaMD).
+
+Ética em pesquisa
+
+A pesquisa de campo inicialmente planejada foi retirada da dissertação em razão das exigências éticas aplicáveis à coleta com participantes. A coleta com profissionais é tratada separadamente, mediante tramitação ética pertinente, considerando especialmente as Resoluções CNS nº 466/2012 e nº 510/2016.
+
+Produção científica associada
+
+A pesquisa originou frentes relacionadas a:
+
+Heterogeneidade de risco clínico e mortalidade na sepse — implicações para estratificação de risco e IA responsável.
+
+Comorbidades e escores prognósticos na estratificação de risco de pacientes com sepse — análise utilizando a MIMIC-IV v3.1.
+
+FAC-IA Saúde — framework de avaliação, governança e uso responsável de IA em saúde.
+
+Transparência, explicabilidade e supervisão humana — mecanismos para sistemas de IA mais transparentes, compreensíveis, auditáveis e supervisionáveis.
+
+Tecnologias utilizadas
+
+Python;
+
+Pandas;
+
+NumPy;
+
+Matplotlib;
+
+análise estatística;
+
+processamento e preparação de dados clínicos;
+
+Jupyter Notebook;
+
+SQL;
+
+Git e GitHub;
+
+MIMIC-IV / PhysioNet.
+
+Organização sugerida do repositório
+
+Projeto_Pesquisa_PPGIT_UFMG/
+├── README.md
+├── data/
+├── notebooks/
+├── scripts/
+├── results/
+├── figures/
+├── docs/
+└── references/
+
+Limitações
+
+Os resultados devem ser interpretados considerando a natureza observacional da MIMIC-IV, o contexto clínico e institucional dos dados, limitações inerentes ao uso secundário de registros eletrônicos de saúde, diferenças de representatividade e limites de generalização. Os resultados não constituem recomendações clínicas individuais.
+
+Instituições relacionadas à pesquisa
+
+Universidade Federal de Minas Gerais — UFMG
+Programa de Pós-Graduação em Inovação Tecnológica — PPGIT
+
+Departamento de Ciência da Computação — DCC/UFMG
+
+Instituto René Rachou — Fiocruz Minas
+
+Autor
+
+Bruno Martins Bartolomeu
+
+Áreas relacionadas: Inteligência Artificial Responsável, Ciência de Dados, Saúde Digital, Governança de IA, avaliação e conformidade de sistemas de IA e Machine Learning aplicado à saúde.
 
 Referências
 
-* Henry, J., Pylypchuk, Y., Searcy T. & Patel V. (maio de 2016). Adoção de Sistemas de Registro Eletrônico de Saúde entre Hospitais Não Federais de Cuidados Agudos dos EUA: 2008-2015. Resumo de Dados do ONC, nº 35. Escritório do Coordenador Nacional de Tecnologia da Informação em Saúde: Washington, DC.
-* Halevy, A., Norvig, P., & Pereira, F. (2009). A eficácia irracional dos dados. IEEE Intelligent Systems, 24(2), 8-12.
-* Johnson, AE, Pollard, TJ, Shen, L., Lehman, LH, Feng, M., Ghassemi, M., ... e Mark, RG (2016). MIMIC-III, um banco de dados de cuidados intensivos de livre acesso. Dados científicos, 3(1), 1-9.
-* Documentação online do MIMIC. https://mimic.mit.edu
-* Johnson AE, Stone DJ, Celi LA, Pollard TJ. O Repositório de Códigos MIMIC: possibilitando a reprodutibilidade na pesquisa em terapia intensiva. Journal of the American Medical Informatics Association. 2018 jan;25(1):32-9.
-* Alistair Johnson, Tom Pollard, Jim Blundell, Brian Gow, Erinhong, Nicolas Paris e outros. MIT-LCP/código-mimic: Código MIMIC v2.1.1. Zenodo; 2021. https://doi.org/10.5281/zenodo.821871
-* Johnson, A., Pollard, T., Horng, S., Celi, LA, & Mark, R. (2023). MIMIC-IV-Note: Notas clínicas de texto livre desidentificadas (versão 2.2). PhysioNet. https://doi.org/10.13026/1n74-ne17.
-* Johnson, A., Bulgarelli, L., Pollard, T., Celi, LA, Mark, R., & Horng, S. (2023). MIMIC-IV-ED (versão 2.2). FisioNet. https://doi.org/10.13026/5ntk-km72.
-* Johnson, A., Pollard, T., Mark, R., Berkowitz, S., & Horng, S. (2019). Banco de dados MIMIC-CXR (versão 2.0.0). PhysioNet. https://doi.org/10.13026/C2JT1Q.
+Inteligência Artificial, ética, saúde e governança
+
+BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF, 2018.
+
+EUROPEAN UNION. Regulation (EU) 2024/1689 of the European Parliament and of the Council laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). Official Journal of the European Union, 2024.
+
+OECD. Recommendation of the Council on Artificial Intelligence. Paris: Organisation for Economic Co-operation and Development, 2019.
+
+UNESCO. Recommendation on the Ethics of Artificial Intelligence. Paris: UNESCO, 2021.
+
+WORLD HEALTH ORGANIZATION. Ethics and governance of artificial intelligence for health: WHO guidance. Geneva: World Health Organization, 2021.
+
+Gestão de risco, conformidade e sistemas de IA
+
+NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY. Artificial Intelligence Risk Management Framework (AI RMF 1.0). Gaithersburg: NIST, 2023.
+
+INTERNATIONAL ORGANIZATION FOR STANDARDIZATION; INTERNATIONAL ELECTROTECHNICAL COMMISSION. ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system. Geneva: ISO, 2023.
+
+INTERNATIONAL ELECTROTECHNICAL COMMISSION. IEC 62304 — Medical device software — Software life cycle processes. Geneva: IEC.
+
+U.S. FOOD AND DRUG ADMINISTRATION. Software as a Medical Device (SaMD) and Artificial Intelligence/Machine Learning-Enabled Medical Devices. Silver Spring: FDA.
+
+Inteligência Artificial aplicada à medicina
+
+TOPOL, E. J. High-performance medicine: the convergence of human and artificial intelligence. Nature Medicine, v. 25, p. 44–56, 2019.
+
+OBERMEYER, Z.; POWERS, B.; VOGELI, C.; MULLAINATHAN, S. Dissecting racial bias in an algorithm used to manage the health of populations. Science, v. 366, n. 6464, p. 447–453, 2019.
+
+HOLZINGER, A.; LANGS, G.; DENK, H.; ZATLOUKAL, K.; MÜLLER, H. Causability and explainability of artificial intelligence in medicine. WIREs Data Mining and Knowledge Discovery, v. 9, n. 4, 2019.
+
+Interpretabilidade e explicabilidade
+
+LIPTON, Z. C. The mythos of model interpretability. Communications of the ACM, v. 61, n. 10, p. 36–43, 2018.
+
+DOSHI-VELEZ, F.; KIM, B. Towards a rigorous science of interpretable machine learning. 2017.
+
+Ética e bioética
+
+BEAUCHAMP, T. L.; CHILDRESS, J. F. Principles of Biomedical Ethics. 8. ed. New York: Oxford University Press, 2019.
+
+MIMIC-IV e sepse
+
+JOHNSON, A. E. W. et al. MIMIC-IV, a freely accessible electronic health record dataset. Scientific Data, v. 10, 2023.
+
+PHYSIONET. MIMIC-IV v3.1. Disponível em: https://physionet.org/content/mimiciv/3.1/
+
+SINGER, M. et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA, v. 315, n. 8, p. 801–810, 2016.
+
+Design Science Research
+
+HEVNER, A. R.; MARCH, S. T.; PARK, J.; RAM, S. Design science in information systems research. MIS Quarterly, v. 28, n. 1, p. 75–105, 2004.
+
+PEFFERS, K.; TUUNANEN, T.; ROTHENBERGER, M. A.; CHATTERJEE, S. A design science research methodology for information systems research. Journal of Management Information Systems, v. 24, n. 3, p. 45–77, 2007.
+
+Ética em pesquisa no Brasil
+
+CONSELHO NACIONAL DE SAÚDE. Resolução nº 466, de 12 de dezembro de 2012. Diretrizes e normas regulamentadoras de pesquisas envolvendo seres humanos.
+
+CONSELHO NACIONAL DE SAÚDE. Resolução nº 510, de 7 de abril de 2016. Normas aplicáveis a pesquisas em Ciências Humanas e Sociais.
+
+Aviso
+
+Este repositório possui finalidade acadêmica e científica. Os resultados, códigos, análises e artefatos devem ser interpretados no contexto da pesquisa e não constituem ferramentas para diagnóstico, prognóstico ou tomada de decisão clínica. O uso da MIMIC-IV deve respeitar integralmente as condições estabelecidas pelo PhysioNet.
